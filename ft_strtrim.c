@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enrigarc <enrigarc@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/28 16:23:03 by enrigarc          #+#    #+#             */
-/*   Updated: 2023/09/28 16:23:03 by enrigarc         ###   ########.fr       */
+/*   Created: 2023/09/28 20:51:55 by enrigarc          #+#    #+#             */
+/*   Updated: 2023/09/28 20:51:55 by enrigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char    *ft_strtim(char const *s1, char const *set)
 {
-    char	*sub;
+    char	*trim;
     size_t	i;
+    size_t	j;
+    size_t	k;
 
-    if (!s)
-        return (0);
-    if (start >= ft_strlen(s))
-        return (ft_strdup(""));
-    if (len > ft_strlen(s) - start)
-        len = ft_strlen(s) - start;
-    sub = (char *)malloc(sizeof(char) * (len + 1));
-    if (!sub)
+    if (!s1 || !set)
         return (0);
     i = 0;
-    while (i < len && s[start + i])
-    {
-        sub[i] = s[start + i];
+    while (s1[i] && ft_strchr(set, s1[i]))
         ++i;
+    j = ft_strlen(s1);
+    while (j > i && ft_strchr(set, s1[j]))
+        --j;
+    trim = (char *)malloc(sizeof(char) * (j - i + 2));
+    if (!trim)
+        return (0);
+    k = 0;
+    while (i <= j)
+    {
+        trim[k] = s1[i];
+        ++i;
+        ++k;
     }
-    sub[i] = '\0';
-    return (sub);
+    trim[k] = '\0';
+    return (trim);
 }

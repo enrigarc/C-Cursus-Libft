@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enrigarc <enrigarc@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/28 16:23:03 by enrigarc          #+#    #+#             */
-/*   Updated: 2023/09/28 16:23:03 by enrigarc         ###   ########.fr       */
+/*   Created: 2023/09/28 20:49:04 by enrigarc          #+#    #+#             */
+/*   Updated: 2023/09/28 20:49:04 by enrigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char *ft_strjoin(char const *s1, char const *s2)
 {
-    char	*sub;
+    char	*join;
     size_t	i;
+    size_t	j;
 
-    if (!s)
+    if (!s1 || !s2)
         return (0);
-    if (start >= ft_strlen(s))
-        return (ft_strdup(""));
-    if (len > ft_strlen(s) - start)
-        len = ft_strlen(s) - start;
-    sub = (char *)malloc(sizeof(char) * (len + 1));
-    if (!sub)
+    join = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+    if (!join)
         return (0);
     i = 0;
-    while (i < len && s[start + i])
+    while (s1[i])
     {
-        sub[i] = s[start + i];
+        join[i] = s1[i];
         ++i;
     }
-    sub[i] = '\0';
-    return (sub);
+    j = 0;
+    while (s2[j])
+    {
+        join[i + j] = s2[j];
+        ++j;
+    }
+    join[i + j] = '\0';
+    return (join);
 }
