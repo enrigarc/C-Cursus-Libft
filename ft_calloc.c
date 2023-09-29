@@ -1,15 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enrigarc <enrigarc@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/28 20:53:32 by enrigarc          #+#    #+#             */
-/*   Updated: 2023/09/28 20:53:32 by enrigarc         ###   ########.fr       */
+/*   Created: 2023/09/29 23:16:07 by enrigarc          #+#    #+#             */
+/*   Updated: 2023/09/29 23:16:07 by enrigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char **ft_split(char const *s, char c)
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+    void	*ptr;
+
+    ptr = malloc(nmemb * size);
+    if (!ptr)
+        return (0);
+    ft_bzero(ptr, nmemb * size);
+    return (ptr);
+}
