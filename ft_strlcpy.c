@@ -6,15 +6,15 @@
 /*   By: enrigarc <enrigarc@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 20:05:57 by enrigarc          #+#    #+#             */
-/*   Updated: 2023/09/15 17:17:08 by enrigarc         ###   ########.fr       */
+/*   Updated: 2023/10/02 16:53:18 by enrigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (!dst || !src)
