@@ -1,36 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enrigarc <enrigarc@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/28 16:23:03 by enrigarc          #+#    #+#             */
-/*   Updated: 2023/10/17 18:41:31 by enrigarc         ###   ########.fr       */
+/*   Created: 2023/10/17 18:13:51 by enrigarc          #+#    #+#             */
+/*   Updated: 2023/10/17 19:07:50 by enrigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*sub;
-	size_t	i;
+char	*ft_strjoin(char const *s1, char const *s2);
 
-	if (!s)
+char	*ft_itoa(int n)
+{
+	char	*str;
+
+	str = (char *)malloc(sizeof(char) * 2);
+	if (!str)
 		return (0);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	sub = (char *)malloc(sizeof(char) * (len + 1));
-	if (!sub)
-		return (0);
-	i = 0;
-	while (i < len && s[start])
+	if (n == -2147483648)
 	{
-		sub[i] = s[start];
-		i++;
-		start++;
+		return (str);
 	}
-	sub[i] = '\0';
-	return (sub);
+	if (n < 0)
+	{
+		str[0] = '-';
+		str[1] = '\0';
+		str = ft_strjoin(str, ft_itoa(-n));
+	}
+	else if (n > 9)
+	{
+		str = ft_strjoin(ft_itoa(n / 10), ft_itoa(n % 10));
+	}
+	else
+	{
+		str[0] = n + '0';
+		str[1] = '\0';
+	}
+	return (str);
 }

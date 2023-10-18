@@ -6,7 +6,7 @@
 /*   By: enrigarc <enrigarc@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 10:51:52 by enrigarc          #+#    #+#             */
-/*   Updated: 2023/10/02 16:50:53 by enrigarc         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:13:25 by enrigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write (fd, &c, 1);
+	write(fd, &c, 1);
 }

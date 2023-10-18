@@ -6,10 +6,12 @@
 /*   By: enrigarc <enrigarc@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 20:53:32 by enrigarc          #+#    #+#             */
-/*   Updated: 2023/09/28 20:53:32 by enrigarc         ###   ########.fr       */
+/*   Updated: 2023/10/17 21:57:16 by enrigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char **ft_split(char const *s, char c)
+// char	**ft_split(char const *s, char c)
+// {
+// }

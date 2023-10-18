@@ -6,11 +6,13 @@
 /*   By: enrigarc <enrigarc@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 10:54:18 by enrigarc          #+#    #+#             */
-/*   Updated: 2023/09/29 10:54:18 by enrigarc         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:16:04 by enrigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	ft_putchar_fd(char c, int fd);
 
 void	ft_putnbr_fd(int n, int fd)
 {
